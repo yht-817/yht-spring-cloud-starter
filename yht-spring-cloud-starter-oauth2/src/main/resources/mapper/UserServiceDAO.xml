@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yht.oauth2.dao.UserServiceDAO">
+    <!--    查询用户详情-->
+    <select id="loadUserByUsername" resultType="com.yht.oauth2.model.UserInfoModel">
+        SELECT
+        id,
+        username,
+        PASSWORD,
+        STATUS
+        FROM
+        ums_member
+        WHERE
+        username = #{userName}
+    </select>
+
+    <!--    查询用户角色权限-->
+    <select id="getRoles" resultType="java.lang.String">
+        SELECT
+        role_id
+        FROM
+        ums_member_role_relation
+        WHERE
+        member_id = #{id}
+    </select>
+
+    <!--    查询全部的权限列表-->
+    <select id="getRoleList" resultType="com.yht.common.entity.RoleResources">
+        SELECT
+        a.uri,
+        CONCAT( '[', GROUP_CONCAT( b.role_id ), ']' ) AS role_ids
+        FROM
+        ums_permission a
+        LEFT JOIN ums_role_permission_relation b ON a.id = b.permission_id
+        GROUP BY
+        a.uri
+    </select>
+</mapper>
