@@ -23,7 +23,6 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
         <spring-cloud-alibaba.version>2.2.6.RELEASE</spring-cloud-alibaba.version>
-        <spring-cloud-oauth2.version>2.2.5.RELEASE</spring-cloud-oauth2.version>
         <mysql-connector.version>8.0.20</mysql-connector.version>
         <mybatis.version>3.4.3</mybatis.version>
         <druid.version>1.2.2</druid.version>
@@ -81,17 +80,6 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
-            </dependency>
-            <!--spring-cloud-starter-oauth2-->
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-starter-oauth2</artifactId>
-                <version>${spring-cloud-oauth2.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.security</groupId>
-                <artifactId>spring-security-oauth2-resource-server</artifactId>
-                <version>5.5.2</version>
             </dependency>
             <!--数据库驱动-->
             <dependency>
