@@ -109,7 +109,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
 
 
     /**
-     * 使用JdbcClientDetailsService客户端详情服务
+     * 定义客户端详细信息服务的配置器
      */
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
@@ -125,7 +125,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * 配置授权（authorization）以及令牌（token）的访问端点和令牌服务(token services)
+     * 定义授权和令牌端点以及令牌服务。
      *
      * @param endpoints
      * @throws Exception
@@ -156,7 +156,7 @@ public class Oauth2ServerConfig extends AuthorizationServerConfigurerAdapter {
     }
 
     /**
-     * 授权端点开放
+     * 定义令牌端点上的安全约束。
      * <p>
      * 下面配置支持将client和client_secret参数放在header或body中
      * 允许表单认证和Basic Auth(Authorization)两个提交方式
